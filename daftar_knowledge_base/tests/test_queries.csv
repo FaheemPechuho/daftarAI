@@ -1,0 +1,21 @@
+query_id,user_query,expected_doc_id,priority,category,expected_answer_length,success_criteria
+Q001,"What is the difference between SMC and sole proprietorship?",comparisons/structure_comparison.md,high,decision-support,medium,Mentions liability protection difference + cost difference
+Q002,"How do I register a private limited company in Pakistan?",secp/private_limited.md,high,registration,long,Step-by-step process + timeline + cost
+Q003,"Do I need NTN as a freelancer?",fbr/ntn_registration.md,high,registration,short,Yes + explains why (bank account + tax filing)
+Q004,"What is the tax rate for freelancers earning in dollars?",fbr/freelancer_tax.md,high,tax,short,0.25-1% final tax rates + conditions
+Q005,"Can one person register a company in Pakistan?",secp/single_member_company.md,high,registration,short,Yes + mentions SMC structure
+Q006,"What is STRN and do I need it?",fbr/strn_registration.md,high,registration,medium,Definition + threshold (10M) + when to apply
+Q007,"How much does it cost to register a company with SECP?",secp/private_limited.md,medium,cost,short,PKR 20-50K range with breakdown
+Q008,"What is limited liability?",GLOSSARY.md,medium,definition,short,Personal assets protected from business debts
+Q009,"Do I need to file taxes if my business makes no profit?",fbr/ntn_registration.md,medium,compliance,short,Yes + explain why (filer status)
+Q010,"Which business structure is best for a solo software developer?",secp/single_member_company.md,high,decision-support,medium,SMC recommended + reasoning (asset protection + professionalism)
+Q011,"How do I register a partnership firm in Pakistan?",secp/partnership.md,high,registration,long,Partners + registrar + deed + process
+Q012,"Is partnership registered with SECP or Registrar of Firms?",secp/partnership.md,high,clarification,short,Registrar of Firms (provincial) + explain difference from SECP
+Q013,"What documents are needed for partnership registration?",secp/partnership.md,medium,requirements,medium,Partnership deed + CNICs + office address + newspaper notice
+Q014,"How many partners are allowed in a partnership business?",secp/partnership.md,medium,eligibility,short,2-20 partners
+Q015,"Do partners have limited liability in Pakistan?",secp/partnership.md,high,liability,short,No + unlimited liability explanation
+Q016,"At what turnover is STRN mandatory for retailers?",fbr/strn_registration.md,high,threshold,short,PKR 10 million annual turnover
+Q017,"Do manufacturers need STRN even below PKR 10 million turnover?",fbr/strn_registration.md,high,threshold,short,Yes + any amount triggers STRN requirement
+Q018,"By what date do I file monthly sales tax returns?",fbr/strn_registration.md,high,deadline,short,15th of following month
+Q019,"What is the last date for annual income tax return filing?",FAQ.md,medium,deadline,short,September 30 every year
+Q020,"What happens if I get NTN but never file my return?",FAQ.md,medium,consequences,medium,Penalties + lose filer status + difficulty with loans

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Daftar - Pakistan Business Law Assistant</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="logo">
+        <span class="logo-icon">💼</span>
+        <span class="logo-text">Daftar</span>
+      </div>
+      <p class="logo-sub">AI Legal Assistant</p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <button class="new-chat-btn" onclick="clearChat()">
+        <span class="icon">➕</span> New Chat
+      </button>
+
+      <div class="nav-section">
+        <p class="nav-label">Main Menu</p>
+        <button class="nav-btn active"><span class="icon">💬</span> Chat</button>
+        <button class="nav-btn"><span class="icon">📚</span> Legal Research</button>
+        <button class="nav-btn"><span class="icon">📄</span> Document Review</button>
+      </div>
+
+      <div class="nav-section">
+        <p class="nav-label">Library</p>
+        <button class="nav-btn"><span class="icon">💾</span> Saved Chats</button>
+      </div>
+
+      <div class="nav-section suggested-section">
+        <p class="nav-label">Suggested</p>
+        <button class="suggestion-btn" onclick="fillSuggestion(this)">Do I need NTN for freelancing?</button>
+        <button class="suggestion-btn" onclick="fillSuggestion(this)">Difference between SMC and Pvt Ltd?</button>
+        <button class="suggestion-btn" onclick="fillSuggestion(this)">How do I register with SECP?</button>
+      </div>
+    </nav>
+
+    <div class="sidebar-footer">
+      <button class="nav-btn profile-btn"><span class="icon">👤</span> Profile</button>
+    </div>
+
+   
+  </aside>
+
+  <!-- Main Chat Area -->
+  <main class="chat-main">
+
+    <header class="chat-header">
+      <button class="menu-toggle" onclick="toggleSidebar()" aria-label="Toggle Sidebar">☰</button>
+      <div class="header-info">
+        <span class="status-dot"></span>
+        <span class="status-text">AI Assistant Active</span>
+      </div>
+      <button class="clear-btn" onclick="clearChat()">Clear chat</button>
+    </header>
+
+    <!-- Messages -->
+    <div class="chat-messages" id="chatMessages">
+      <!-- Welcome message -->
+      <div class="message bot-message welcome-msg">
+        <div class="avatar bot-avatar">⚖</div>
+        <div class="message-body">
+          <div class="message-bubble">
+            <p class="greeting">Assalam o Alaikum! I'm <strong>Daftar</strong>.</p>
+            <p>I help Pakistani founders navigate business registration and compliance in plain language.</p>
+            <p>Ask me about <strong>SECP registration</strong>, <strong>NTN/STN</strong>, or <strong>business structures</strong>.</p>
+            <div class="source-tag">Ready to assist</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Input Area -->
+    <div class="chat-input-area">
+      <div class="input-wrapper">
+        <textarea
+          id="userInput"
+          class="chat-input"
+          placeholder="e.g. Do I need NTN for freelancing?"
+          rows="1"
+          onkeydown="handleKeyDown(event)"
+          oninput="autoResize(this)"
+        ></textarea>
+        <button class="send-btn" id="sendBtn" onclick="sendMessage()" aria-label="Send">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+        </button>
+      </div>
+      <p class="input-hint">Press <kbd>Enter</kbd> to send · <kbd>Shift+Enter</kbd> for new line</p>
+    </div>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

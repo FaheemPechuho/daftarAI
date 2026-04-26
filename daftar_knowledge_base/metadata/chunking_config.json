@@ -1,0 +1,14 @@
+{
+  "strategy": "markdown_section_aware",
+  "max_chunk_tokens": 700,
+  "chunk_overlap_tokens": 120,
+  "respect_headings": true,
+  "include_source_metadata": true,
+  "fields": {
+    "document_id": true,
+    "document_path": true,
+    "section_heading": true,
+    "source_ids": true,
+    "last_updated": true
+  }
+}

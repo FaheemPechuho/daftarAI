@@ -1,0 +1,29 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --color-gemini-bg: #131314;
+  --color-gemini-sidebar: #1e1f20;
+  --color-gemini-input: #1e1f20;
+  --color-gemini-border: #333538;
+  --color-gemini-text: #e3e3e3;
+}
+
+@layer base {
+  body {
+    @apply bg-gemini-bg text-gemini-text;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+/* Hide scrollbar for a cleaner look */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #333538;
+  border-radius: 4px;
+}

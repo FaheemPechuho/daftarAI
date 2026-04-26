@@ -1,0 +1,238 @@
+{
+  "kb_name": "Daftar Knowledge Base",
+  "version": "0.4.1",
+  "last_updated": "2026-04-27",
+  "total_documents": 24,
+  "documents": [
+    {
+      "id": "secp-private-limited",
+      "path": "secp/private_limited.md",
+      "topic": "secp",
+      "type": "registration",
+      "audience": ["multi-founder", "startup", "investor-ready"],
+      "tags": ["business-structure", "registration", "limited-liability", "funding", "governance"],
+      "retrieval_keywords": ["private limited", "pvt ltd", "register company", "2+ shareholders", "investor"],
+      "related_docs": ["secp-single-member-company", "comparisons/structure_comparison.md", "compliance_checklist.md"]
+    },
+    {
+      "id": "secp-single-member-company",
+      "path": "secp/single_member_company.md",
+      "topic": "secp",
+      "type": "registration",
+      "audience": ["solo-founder", "freelancer", "small-business"],
+      "tags": ["business-structure", "registration", "solo-founder", "limited-liability", "asset-protection"],
+      "retrieval_keywords": ["single member company", "smc", "solo founder", "one person company"],
+      "related_docs": ["secp-sole-proprietorship", "comparisons/structure_comparison.md", "quick_reference.md"]
+    },
+    {
+      "id": "secp-sole-proprietorship",
+      "path": "secp/sole_proprietorship.md",
+      "topic": "secp",
+      "type": "registration",
+      "audience": ["solo-founder", "startup-idea", "freelancer"],
+      "tags": ["business-structure", "registration", "zero-cost", "simple", "unlimited-liability"],
+      "retrieval_keywords": ["sole proprietor", "sole proprietorship", "no registration", "free", "start business"],
+      "related_docs": ["secp-single-member-company", "fbr-ntn-registration", "quick_reference.md"]
+    },
+    {
+      "id": "secp-partnership",
+      "path": "secp/partnership.md",
+      "topic": "secp",
+      "type": "registration",
+      "audience": ["multiple-founders", "professional-services"],
+      "tags": ["business-structure", "registration", "partnership", "multiple-partners", "unlimited-liability"],
+      "retrieval_keywords": ["partnership", "partners", "2-20 people", "registrar of firms"],
+      "related_docs": ["comparisons/structure_comparison.md", "common_mistakes.md"]
+    },
+    {
+      "id": "fbr-ntn-registration",
+      "path": "fbr/ntn_registration.md",
+      "topic": "fbr",
+      "type": "registration",
+      "audience": ["all-founders", "freelancer", "business-owner"],
+      "tags": ["tax", "registration", "ntn", "free", "mandatory"],
+      "retrieval_keywords": ["ntn", "national tax number", "tax registration", "iris", "fbr"],
+      "related_docs": ["fbr-strn-registration", "fbr-freelancer-tax", "compliance_checklist.md"]
+    },
+    {
+      "id": "fbr-strn-registration",
+      "path": "fbr/strn_registration.md",
+      "topic": "fbr",
+      "type": "registration",
+      "audience": ["business-owner", "retailer", "manufacturer"],
+      "tags": ["tax", "registration", "strn", "sales-tax", "threshold"],
+      "retrieval_keywords": ["strn", "sales tax", "10m threshold", "manufacturer", "retailer"],
+      "related_docs": ["fbr-ntn-registration", "compliance_checklist.md"]
+    },
+    {
+      "id": "fbr-freelancer-tax",
+      "path": "fbr/freelancer_tax.md",
+      "topic": "fbr",
+      "type": "tax",
+      "audience": ["freelancer", "consultant", "exporter"],
+      "tags": ["tax", "freelancer", "export-income", "final-tax"],
+      "retrieval_keywords": ["freelancer", "export", "0.25%", "foreign income", "developer", "designer"],
+      "related_docs": ["fbr-ntn-registration", "quick_reference.md", "FAQ.md"]
+    },
+    {
+      "id": "comparisons-structure",
+      "path": "comparisons/structure_comparison.md",
+      "topic": "comparisons",
+      "type": "decision-support",
+      "audience": ["new-founder", "decision-maker"],
+      "tags": ["decision", "comparison", "structure-choice", "liability", "cost"],
+      "retrieval_keywords": ["compare structures", "sole prop vs smc", "which structure", "cost comparison"],
+      "related_docs": ["secp-private-limited", "secp-single-member-company", "secp-sole-proprietorship", "quick_reference.md"]
+    },
+    {
+      "id": "citations-source-index",
+      "path": "citations/source_index.md",
+      "topic": "citations",
+      "type": "reference",
+      "audience": ["rag-system", "researcher"],
+      "tags": ["sources", "verification", "citations", "claims"],
+      "retrieval_keywords": ["source", "citation", "reference", "verified"],
+      "related_docs": ["all"]
+    },
+    {
+      "id": "FAQ",
+      "path": "FAQ.md",
+      "topic": "guidance",
+      "type": "qa",
+      "audience": ["all-founders"],
+      "tags": ["questions", "answers", "guidance", "common-questions"],
+      "retrieval_keywords": ["how do i", "what is", "do i need", "question"],
+      "related_docs": ["GLOSSARY.md", "quick_reference.md", "compliance_checklist.md"]
+    },
+    {
+      "id": "GLOSSARY",
+      "path": "GLOSSARY.md",
+      "topic": "reference",
+      "type": "definitions",
+      "audience": ["non-technical", "founder"],
+      "tags": ["definitions", "terms", "learning", "glossary"],
+      "retrieval_keywords": ["what is", "definition", "term", "meaning"],
+      "related_docs": ["FAQ.md"]
+    },
+    {
+      "id": "compliance-checklist",
+      "path": "compliance_checklist.md",
+      "topic": "compliance",
+      "type": "checklist",
+      "audience": ["business-owner", "compliance-manager"],
+      "tags": ["compliance", "annual-requirements", "checklist", "deadline"],
+      "retrieval_keywords": ["annual", "comply", "deadline", "requirements", "checklist"],
+      "related_docs": ["incorporation_timeline.md", "FAQ.md"]
+    },
+    {
+      "id": "quick-reference",
+      "path": "quick_reference.md",
+      "topic": "reference",
+      "type": "summary",
+      "audience": ["busy-founder", "decision-maker"],
+      "tags": ["summary", "quick", "one-page", "reference"],
+      "retrieval_keywords": ["quick", "summary", "one page", "comparison", "at-a-glance"],
+      "related_docs": ["comparisons/structure_comparison.md", "FAQ.md"]
+    },
+    {
+      "id": "common-mistakes",
+      "path": "common_mistakes.md",
+      "topic": "guidance",
+      "type": "warning",
+      "audience": ["all-founders", "risk-aware"],
+      "tags": ["mistakes", "avoid", "risk", "warning"],
+      "retrieval_keywords": ["mistake", "avoid", "wrong", "error", "blocker"],
+      "related_docs": ["compliance_checklist.md", "incorporation_timeline.md"]
+    },
+    {
+      "id": "incorporation-timeline",
+      "path": "incorporation_timeline.md",
+      "topic": "guidance",
+      "type": "timeline",
+      "audience": ["all-founders", "planner"],
+      "tags": ["timeline", "planning", "blockers", "realistic"],
+      "retrieval_keywords": ["how long", "timeline", "days", "weeks", "blocking"],
+      "related_docs": ["common_mistakes.md", "compliance_checklist.md"]
+    },
+    {
+      "id": "next-steps",
+      "path": "next_steps.md",
+      "topic": "guidance",
+      "type": "action-plan",
+      "audience": ["new-founder", "action-taker"],
+      "tags": ["action-plan", "step-by-step", "next-steps", "sequence"],
+      "retrieval_keywords": ["what next", "after registration", "action plan", "steps"],
+      "related_docs": ["secp-private-limited", "secp-single-member-company", "fbr-ntn-registration"]
+    },
+    {
+      "id": "regulatory-bodies",
+      "path": "regulatory_bodies.md",
+      "topic": "reference",
+      "type": "introduction",
+      "audience": ["new-founder", "learning"],
+      "tags": ["secp", "fbr", "authorities", "government"],
+      "retrieval_keywords": ["secp", "fbr", "authority", "government", "who registers"],
+      "related_docs": ["FAQ.md"]
+    },
+    {
+      "id": "employee-tax",
+      "path": "employee_tax_and_payroll.md",
+      "topic": "fbr",
+      "type": "tax",
+      "audience": ["employer", "growing-business"],
+      "tags": ["employee", "tax", "payroll", "withholding", "eobi"],
+      "retrieval_keywords": ["employee", "hire staff", "payroll", "salary tax", "withholding"],
+      "related_docs": ["compliance_checklist.md", "fbr-ntn-registration"]
+    },
+    {
+      "id": "recovery-appeals",
+      "path": "recovery_and_appeals.md",
+      "topic": "guidance",
+      "type": "troubleshooting",
+      "audience": ["disputed-founder", "problem-solver"],
+      "tags": ["recovery", "appeal", "dispute", "rejection", "audit"],
+      "retrieval_keywords": ["rejected", "appeal", "disputed", "audit notice", "secp rejected"],
+      "related_docs": ["compliance_checklist.md", "incorporation_timeline.md"]
+    },
+    {
+      "id": "templates-moa",
+      "path": "templates/MOA_sample.md",
+      "topic": "templates",
+      "type": "document-template",
+      "audience": ["smc-founder", "pvt-ltd-founder"],
+      "tags": ["template", "moa", "articles", "incorporation", "sample"],
+      "retrieval_keywords": ["memorandum of association", "moa template", "registration document"],
+      "related_docs": ["secp-private-limited", "secp-single-member-company"]
+    },
+    {
+      "id": "templates-aoa",
+      "path": "templates/AOA_sample.md",
+      "topic": "templates",
+      "type": "document-template",
+      "audience": ["smc-founder", "pvt-ltd-founder"],
+      "tags": ["template", "aoa", "articles", "governance", "sample"],
+      "retrieval_keywords": ["articles of association", "aoa template", "director rules"],
+      "related_docs": ["secp-private-limited", "secp-single-member-company"]
+    },
+    {
+      "id": "templates-partnership-deed",
+      "path": "templates/Partnership_Deed_sample.md",
+      "topic": "templates",
+      "type": "document-template",
+      "audience": ["partnership-founder"],
+      "tags": ["template", "partnership", "deed", "agreement", "sample"],
+      "retrieval_keywords": ["partnership deed template", "partners agreement", "registrar"],
+      "related_docs": ["secp-partnership", "regulatory_bodies.md"]
+    },
+    {
+      "id": "templates-invoice",
+      "path": "templates/Invoice_template.md",
+      "topic": "templates",
+      "type": "document-template",
+      "audience": ["all-founders", "freelancer", "business-owner"],
+      "tags": ["template", "invoice", "billing", "tax-compliance", "sample"],
+      "retrieval_keywords": ["invoice template", "billing", "ntn on invoice", "tax compliance"],
+      "related_docs": ["fbr-ntn-registration", "compliance_checklist.md"]
+    }
+  ]
+}
