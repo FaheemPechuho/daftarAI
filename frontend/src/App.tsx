@@ -77,8 +77,9 @@ export default function App() {
     const placeholderBot: BotMessage = { role: 'bot', answer: '', steps: [], source: '' };
     addMessage(placeholderBot);
 
+    const apiBase = import.meta.env.VITE_API_URL ?? '';
     try {
-      const response = await fetch('/ask', {
+      const response = await fetch(`${apiBase}/ask`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ query: trimmed }),
