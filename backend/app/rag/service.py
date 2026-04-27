@@ -6,7 +6,7 @@ from typing import Any
 from pydantic import BaseModel, Field, ValidationError
 
 from app.config import settings
-from app.rag import gemini_llm, st_embedder, store
+from app.rag import gemini_llm, groq_llm, st_embedder, store
 
 OUT_OF_SCOPE_KEYWORDS = [
     "divorce",
@@ -96,12 +96,17 @@ class RAGService:
         user_msg = f"USER QUESTION:\n{query}\n\nCONTEXT:\n{ctx}"
 
         try:
-            raw = gemini_llm.generate_json(SYSTEM_PROMPT, user_msg) or "{}"
+            # Prefer Groq (fast, llama-3.1-8b-instant) when key is available,
+            # fall back to Gemini.
+            if settings.groq_api_key.strip():
+                raw = groq_llm.generate_json(SYSTEM_PROMPT, user_msg) or "{}"
+            else:
+                raw = gemini_llm.generate_json(SYSTEM_PROMPT, user_msg) or "{}"
         except RuntimeError as e:
             return AskResponse(
                 answer=(
-                    "The answer service is temporarily rate-limited (Gemini API quota). "
-                    "Wait a minute and try again, or enable billing / a higher tier in Google AI Studio."
+                    "The answer service is temporarily unavailable. "
+                    "Please wait a moment and try again."
                 ),
                 steps=[],
                 source="",

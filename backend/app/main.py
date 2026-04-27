@@ -35,14 +35,15 @@ async def lifespan(app: FastAPI):
     else:
         st_embedder.warmup()
 
-    if settings.gemini_api_key.strip():
+    if settings.groq_api_key.strip():
+        logger.info("Chat LLM: Groq llama-3.1-8b-instant (fast)")
+        _rag = RAGService()
+    elif settings.gemini_api_key.strip():
+        logger.info("Chat LLM: Gemini %s", settings.gemini_chat_model)
         gemini_llm.configure()
         _rag = RAGService()
     else:
-        logger.warning(
-            "GEMINI_API_KEY is not set; /ask is disabled. "
-            "Embeddings use Sentence Transformers locally; add Gemini for chat."
-        )
+        logger.warning("Neither GROQ_API_KEY nor GEMINI_API_KEY is set; /ask is disabled.")
         _rag = None
     yield
     _rag = None
@@ -80,7 +81,8 @@ def health() -> dict:
         "qdrant_chunks": n,
         "embedding_model": settings.local_embedding_model,
         "embedding_dims": settings.embedding_dimensions,
-        "rag_enabled": bool(settings.gemini_api_key.strip()) and _rag is not None,
+        "rag_enabled": _rag is not None,
+        "chat_llm": "groq" if settings.groq_api_key.strip() else ("gemini" if settings.gemini_api_key.strip() else "none"),
     }
 
 
