@@ -3,7 +3,7 @@ from __future__ import annotations
 import logging
 from contextlib import asynccontextmanager
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 
@@ -96,3 +96,34 @@ def ask(body: AskBody) -> AskResponse:
     except Exception as e:
         logger.exception("ask failed")
         raise HTTPException(status_code=502, detail=str(e)) from e
+
+
+class TranscribeResponse(BaseModel):
+    text: str
+
+
+@app.post("/transcribe", response_model=TranscribeResponse)
+async def transcribe(file: UploadFile = File(...)) -> TranscribeResponse:
+    if not settings.groq_api_key.strip():
+        raise HTTPException(status_code=503, detail="GROQ_API_KEY not configured")
+
+    audio_bytes = await file.read()
+    if not audio_bytes:
+        raise HTTPException(status_code=400, detail="Empty audio file received")
+
+    try:
+        from groq import Groq
+        client = Groq(api_key=settings.groq_api_key)
+        filename = file.filename or "audio.webm"
+        content_type = file.content_type or "audio/webm"
+        transcription = client.audio.transcriptions.create(
+            model="whisper-large-v3-turbo",
+            file=(filename, audio_bytes, content_type),
+            response_format="text",
+            language="en",
+        )
+        text = transcription if isinstance(transcription, str) else getattr(transcription, "text", "")
+        return TranscribeResponse(text=text.strip())
+    except Exception as e:
+        logger.exception("transcription failed")
+        raise HTTPException(status_code=502, detail=f"Transcription failed: {e}") from e

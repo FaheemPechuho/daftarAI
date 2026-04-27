@@ -18,6 +18,7 @@ class Settings(BaseSettings):
     qdrant_url: str
     qdrant_api_key: str
     gemini_api_key: str = ""
+    groq_api_key: str = ""
 
     gemini_chat_model: str = "gemini-2.0-flash"
     gemini_max_retries: int = 8

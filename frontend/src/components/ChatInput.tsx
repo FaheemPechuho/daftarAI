@@ -47,7 +47,8 @@ export default function ChatInput({
       const ext = blob.type.includes('ogg') ? 'audio.ogg' : 'audio.webm';
       formData.append('file', blob, ext);
 
-      const res = await fetch('/transcribe', { method: 'POST', body: formData });
+      const apiBase = import.meta.env.VITE_API_URL ?? '';
+      const res = await fetch(`${apiBase}/transcribe`, { method: 'POST', body: formData });
       if (!res.ok) {
         const err = await res.json().catch(() => ({ detail: 'Transcription failed' }));
         throw new Error(err.detail || 'Transcription failed');
