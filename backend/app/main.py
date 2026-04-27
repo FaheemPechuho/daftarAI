@@ -48,7 +48,7 @@ async def lifespan(app: FastAPI):
     _rag = None
 
 
-app = FastAPI(title="Daftar API", version="0.1.0", lifespan=lifespan)
+app = FastAPI(title="Daftar API", version="0.1.1", lifespan=lifespan)
 
 app.add_middleware(
     CORSMiddleware,
@@ -57,6 +57,11 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+@app.get("/")
+def root() -> dict:
+    return {"status": "ok", "service": "Daftar API"}
 
 
 class AskBody(BaseModel):
