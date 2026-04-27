@@ -12,14 +12,9 @@ _UPSERT_BATCH_SIZE = 50
 
 
 def get_client() -> QdrantClient:
-    url = settings.qdrant_url
-    # qdrant_client defaults to port 6333 even for https:// URLs.
-    # Qdrant Cloud requires 443; local instances use 6333.
-    port = 443 if url.startswith("https://") else 6333
     return QdrantClient(
-        url=url,
+        url=settings.qdrant_url,
         api_key=settings.qdrant_api_key,
-        port=port,
         timeout=120,  # seconds — prevents WriteTimeout on slow/distant connections
     )
 
