@@ -1,0 +1,10 @@
+[phases.install]
+cmds = ["pip install -r backend/requirements.txt"]
+
+[phases.build]
+cmds = [
+  "python -c \"from sentence_transformers import SentenceTransformer; SentenceTransformer('all-MiniLM-L6-v2')\""
+]
+
+[start]
+cmd = "cd backend && uvicorn app.main:app --host 0.0.0.0 --port $PORT"
