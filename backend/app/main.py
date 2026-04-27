@@ -112,18 +112,28 @@ async def transcribe(file: UploadFile = File(...)) -> TranscribeResponse:
         raise HTTPException(status_code=400, detail="Empty audio file received")
 
     try:
-        from groq import Groq
+        import time
+        from groq import Groq, InternalServerError
         client = Groq(api_key=settings.groq_api_key)
         filename = file.filename or "audio.webm"
         content_type = file.content_type or "audio/webm"
-        transcription = client.audio.transcriptions.create(
-            model="whisper-large-v3-turbo",
-            file=(filename, audio_bytes, content_type),
-            response_format="text",
-            language="en",
-        )
-        text = transcription if isinstance(transcription, str) else getattr(transcription, "text", "")
-        return TranscribeResponse(text=text.strip())
+        last_err: Exception | None = None
+        for attempt in range(3):
+            try:
+                transcription = client.audio.transcriptions.create(
+                    model="whisper-large-v3-turbo",
+                    file=(filename, audio_bytes, content_type),
+                    response_format="text",
+                    language="en",
+                )
+                text = transcription if isinstance(transcription, str) else getattr(transcription, "text", "")
+                return TranscribeResponse(text=text.strip())
+            except InternalServerError:
+                last_err = InternalServerError
+                time.sleep(2 ** attempt)
+        raise last_err or RuntimeError("Groq unavailable")
+    except HTTPException:
+        raise
     except Exception as e:
         logger.exception("transcription failed")
         raise HTTPException(status_code=502, detail=f"Transcription failed: {e}") from e

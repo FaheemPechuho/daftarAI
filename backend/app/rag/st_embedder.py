@@ -16,7 +16,8 @@ def get_model() -> SentenceTransformer:
     if _model is None:
         logger.info("Loading SentenceTransformer model %r…", settings.local_embedding_model)
         _model = SentenceTransformer(settings.local_embedding_model)
-        dim = _model.get_sentence_embedding_dimension()
+        get_dim = getattr(_model, "get_embedding_dimension", None) or getattr(_model, "get_sentence_embedding_dimension", None)
+        dim = get_dim() if get_dim else settings.embedding_dimensions
         if dim != settings.embedding_dimensions:
             raise ValueError(
                 f"Model {settings.local_embedding_model!r} outputs dimension {dim}, "
